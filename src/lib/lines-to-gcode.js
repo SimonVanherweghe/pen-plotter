@@ -1,15 +1,18 @@
-function linesToGcode(lines) {
+function linesToGcode(lines, speed = 900) {
   const absolutePositioning = 'G90';
   const resetToZero = ['G92 X0', 'G92 Y0'];
   const park = 'M03 S0';
-  const up = 'M03 S10';
-  const down = 'M03 S30';
-  const goTo = ([x, y]) => [
+  const up = 'M03 S30';
+  const down = 'M03 S100';
+  const goTo = ([x, y]) =>
+    [
       'G1',
       typeof x === 'number' && `X${x}`,
       typeof y === 'number' && `Y${y}`,
-      'F5000'
-    ].filter(Boolean).join(' ');
+      `F${speed}`
+    ]
+      .filter(Boolean)
+      .join(' ');
 
   const commands = [];
 

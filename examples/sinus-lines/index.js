@@ -5,9 +5,9 @@ const {getBounds2d} = require('../../src/lib/get-bounds-2d');
 const {linesToGcode} = require('../../src/lib/lines-to-gcode');
 const {plot} = require('../../src/lib/plot');
 
-const width = 250;
-const height = 170;
-const scale = 80;
+const width = 200;
+const height = 150;
+const scale = 100;
 const xOffset = scale / 2 - 5;
 const yOffset = scale / 2 + 80;
 
@@ -38,4 +38,4 @@ fs.writeFileSync(
   linesToSvg(lines, {width: 0.1, viewboxX: width, viewboxY: height})
 );
 
-plot('/dev/tty.wchusbserial1460', commands);
+plot('/dev/tty.wchusbserial142220', commands);
